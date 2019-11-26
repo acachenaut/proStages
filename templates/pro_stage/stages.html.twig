@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'proStageTemplate.html.twig' %}
 
-{% block title %}Hello ProStageController!{% endblock %}
+{% block titre %}{{parent()}}Stages{% endblock %}
 
 {% block body %}
-
-<h1>Cette page affichera le descriptif du stage ayant pour identifiant {{idRessources}}</h1>
+{{parent()}}
+<h2>Cette page affichera le descriptif du stage ayant pour identifiant {{idRessources}}</h2>
 
 {% endblock %}
