@@ -2,8 +2,11 @@
 
 {% block titre %}{{parent()}}Stages{% endblock %}
 
-{% block body %}
-{{parent()}}
-<h2>Cette page affichera le descriptif du stage ayant pour identifiant {{idRessources}}</h2>
 
+{% block titrePage %}
+<h2>Stage : {{idRessources}} </h2>
+{% endblock %}
+
+{% block contenuPage %}
+<p>blablablablablablab</p>
 {% endblock %}
