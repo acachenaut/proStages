@@ -5,9 +5,43 @@
 
 
 {% block titrePage %}
-<h2>Les derniers stages ajoutés</h2>
+Les derniers stages ajoutés
 {% endblock %}
 
 {% block contenuPage %}
-<p>blablablablablablab</p>
+
+<div class="card-deck">
+  <div class="card">
+    <a href="{{path('proStage_descriptifStage',{id:5})}}">
+      <img src="{{asset('/img/slider1.jpg')}}" class="card-img-top" >
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">Stage Safran</h5>
+      <p class="card-text">Dans ce stage vous...</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+  <a href="{{path('proStage_descriptifStage',{id:20})}}">
+    <img src="{{asset('/img/slider2.jpg')}}" class="card-img-top" >
+  </a>
+    <div class="card-body">
+      <h5 class="card-title">Stage Capgemini</h5>
+      <p class="card-text">Dans ce stage vous...</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+  <a href="{{path('proStage_descriptifStage',{id:15})}}">
+    <img src="{{asset('/img/slider3.jpg')}}" class="card-img-top" >
+  </a>
+    <div class="card-body">
+      <h5 class="card-title">Stage bibliothèque de Biarritz</h5>
+      <p class="card-text">Dans ce stage vous...</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
