@@ -5,7 +5,7 @@
 
 
 {% block titrePage %}
-Voici la liste des stages disponibles
+Voici la liste des stages proposés par l'entreprise : {{entreprise.nom}}
 {% endblock %}
 
 {% block contenuPage %}
@@ -30,15 +30,14 @@ Voici la liste des stages disponibles
 						</th>
 					</tr>
 				</thead>
-        {% for stageCourant in stages %}
+        {% for stageCourant in entreprise.stages %}
 				<tbody>
 					<tr>
 						<td>
 							{{stageCourant.id}}
 						</td>
 						<td>
-						<a href='{{path('proStage_descriptifStage',{id:stageCourant.id})}}'> {{stageCourant.titre}}</a>
-
+							<a href='{{path('proStage_descriptifStage',{id:stageCourant.id})}}'> {{stageCourant.titre}}</a>
 						</td>
 						<td>
 							{{stageCourant.entreprise.nom}}
@@ -55,5 +54,14 @@ Voici la liste des stages disponibles
 		</div>
 	</div>
 </div>
+
+</br></br>
+
+Informations sur l'entreprise :
+<ul>
+  <li>Actvité : {{entreprise.acitivite}} </li>
+  <li>Adresse : {{entreprise.adresse}} </li>
+  <li>Site Internet : {{entreprise.site}}
+</ul>
 
 {% endblock %}

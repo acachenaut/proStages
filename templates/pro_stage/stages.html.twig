@@ -4,9 +4,18 @@
 
 
 {% block titrePage %}
-<h2>Stage : {{idRessources}} </h2>
+<h2>Stage : {{stage.titre}} </h2>
 {% endblock %}
 
 {% block contenuPage %}
-<p>blablablablablablab</p>
+<ul>
+  <li>Descriptif : {{stage.description}} </li>
+  <li>Entreprise : <a href='{{path('proStage_entreprise',{id:stage.entreprise.id})}}'> {{stage.entreprise.nom}}</a></li>
+  <li>Contact : {{stage.email}}
+  <li>Formation(s) : </br>
+    {% for formation in stage.formations%}
+        - {{formation.nom}} </br>
+    {% endfor %}</li>
+
+</ul>
 {% endblock %}

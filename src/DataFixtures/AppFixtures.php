@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
 
               $stage = new Stage();
               $stage->setCode($y);
-              $stage->setTitre($faker->sentence($nbWords = 6, $variableNbWords=true));
+              $stage->setTitre($faker->realText($maxNbChars = $faker->numberBetween($min = 30, $max = 100), $indexSize = 1));
               $stage->setEmail($faker->email);
               $stage->setDescription($faker->realText($maxNbChars = $faker->numberBetween($min = 600, $max = 1200), $indexSize = 1));
               $stage->setEntreprise($idEntreprise);
