@@ -8,5 +8,48 @@
 {% endblock %}
 
 {% block contenuPage %}
-<p>blablablablablablab</p>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-sm table-bordered">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Nom
+						</th>
+						<th>
+							Actvité
+						</th>
+						<th>
+							Adresse
+						</th>
+					</tr>
+				</thead>
+        {% for entrepriseCourante in entreprises %}
+				<tbody>
+					<tr>
+						<td>
+							{{entrepriseCourante.id}}
+						</td>
+						<td>
+							{{entrepriseCourante.nom}}
+						</td>
+						<td>
+							{{entrepriseCourante.acitivite}}
+						</td>
+						<td>
+								{{entrepriseCourante.adresse}}
+						</td>
+					</tr>
+          {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
 {% endblock %}

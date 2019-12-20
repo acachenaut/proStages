@@ -23,7 +23,10 @@ Voici la liste des stages disponibles
 							Titre
 						</th>
 						<th>
-							Descripton
+							Entreprise
+						</th>
+						<th>
+							Formation(s)
 						</th>
 					</tr>
 				</thead>
@@ -37,7 +40,12 @@ Voici la liste des stages disponibles
 							{{stageCourant.titre}}
 						</td>
 						<td>
-							{{stageCourant.description}}
+							{{stageCourant.entreprise.nom}}
+						</td>
+						<td>
+							{% for formation in stageCourant.formations %}
+								{{formation.code}}</br>
+							{% endfor %}
 						</td>
 					</tr>
           {% endfor %}
