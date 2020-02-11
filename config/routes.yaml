@@ -21,3 +21,7 @@ proStage_formation:
 proStage_descriptifStage:
     path: /stage/{id}
     controller: App\Controller\ProStageController::afficherDescriptifStage
+
+proStage_ajoutEntreprise:
+    path: /ajouterEntreprise
+    controller: App\Controller\ProStageController::ajouterEntreprise

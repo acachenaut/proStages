@@ -55,5 +55,10 @@ class ProStageController extends AbstractController
       ['stage'=>$stage]);
     }
 
+    public function ajouterEntreprise()
+    {
+      return $this->render('pro_stage/ajouterEntreprise.html.twig');
+    }
+
 
 }
