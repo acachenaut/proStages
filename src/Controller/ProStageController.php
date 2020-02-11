@@ -5,59 +5,53 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\Stage;
-use App\Entity\Entreprise;
-use App\Entity\Formation;
+use App\Repository\StageRepository;
+use App\Repository\EntrepriseRepository;
+use App\Repository\FormationRepository;
 
 class ProStageController extends AbstractController
 {
 
 
-    public function afficherAccueil()
+    public function afficherAccueil(StageRepository $repoStage)
     {
-      $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
-      $stages=$repositoryStage->findAll();
+      $stages=$repoStage->findTousLesStages();
       return $this->render('pro_stage/accueil.html.twig',['stages'=>$stages]);
     }
 
 
-    public function afficherEntreprises()
+    public function afficherEntreprises(EntrepriseRepository $repoEntreprise)
     {
-      $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
-      $entreprises=$repositoryEntreprise->findall();
+      $entreprises=$repoEntreprise->findall();
       return $this->render('pro_stage/entreprises.html.twig',['entreprises'=>$entreprises]);
 
     }
 
-    public function entreprise($id)
+    public function entreprise($nomEntreprise, StageRepository $repoStage, EntrepriseRepository $repoEntreprise)
     {
-        $repoEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
-        $entreprise = $repoEntreprise->find($id);
+        $stages = $repoStage->findByEntreprise($nomEntreprise);
         return $this->render('pro_stage/entreprise.html.twig',
-        ['entreprise'=>$entreprise]);
+        ['stages'=>$stages, 'nomEntreprise'=>$nomEntreprise]);
     }
 
-    public function afficherFormations()
+    public function afficherFormations(FormationRepository $repoFormation)
     {
-      $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
-      $formations=$repositoryFormation->findall();
+      $formations=$repoFormation->findall();
       return $this->render('pro_stage/formations.html.twig',['formations'=>$formations]);
     }
 
-    public function formation($id)
+    public function formation($nomFormation, FormationRepository $repoFormation,StageRepository $repoStage)
    {
-       $repoFormation = $this->getDoctrine()->getRepository(Formation::class);
-       $formation = $repoFormation->find($id);
+       $stages = $repoStage->findByFormation($nomFormation);
        return $this->render('pro_stage/formation.html.twig',
-       ['formation'=>$formation]);
+       ['stages'=>$stages, 'nomFormation'=>$nomFormation]);
    }
 
 
-    public function afficherDescriptifStage($id)
+    public function afficherDescriptifStage($id,StageRepository $repoStage)
     {
-      $repoStage = $this->getDoctrine()->getRepository(Stage::class);
       $stage = $repoStage->find($id);
-      return $this->render('pro_stage/stages.html.twig',
+      return $this->render('pro_stage/stage.html.twig',
       ['stage'=>$stage]);
     }
 

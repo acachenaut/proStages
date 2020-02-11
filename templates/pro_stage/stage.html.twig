@@ -1,0 +1,21 @@
+{% extends 'proStageTemplate.html.twig' %}
+
+{% block titre %}{{parent()}}Stages{% endblock %}
+
+
+{% block titrePage %}
+<h2>Stage : {{stage.titre}} </h2>
+{% endblock %}
+
+{% block contenuPage %}
+<ul>
+  <li>Descriptif : {{stage.description}} </li>
+  <li>Entreprise : <a href='{{path('proStage_entreprise',{nomEntreprise:stage.entreprise.nom})}}'> {{stage.entreprise.nom}}</a></li>
+  <li>Contact : {{stage.email}}
+  <li>Formation(s) : </br>
+    {% for formation in stage.formations%}
+        - {{formation.nom}} </br>
+    {% endfor %}</li>
+
+</ul>
+{% endblock %}

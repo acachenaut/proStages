@@ -5,7 +5,7 @@
 
 
 {% block titrePage %}
-Voici la liste des stages de la formation : {{formation.nom}}
+Voici la liste des stages de la formation : {{nomFormation}}
 {% endblock %}
 
 {% block contenuPage %}
@@ -25,12 +25,9 @@ Voici la liste des stages de la formation : {{formation.nom}}
 						<th>
 							Entreprise
 						</th>
-						<th>
-							Formation(s)
-						</th>
 					</tr>
 				</thead>
-        {% for stageCourant in formation.stages %}
+        {% for stageCourant in stages %}
 				<tbody>
 					<tr>
 						<td>
@@ -42,12 +39,7 @@ Voici la liste des stages de la formation : {{formation.nom}}
 						<td>
 							{{stageCourant.entreprise.nom}}
 						</td>
-						<td>
-							{% for formation in stageCourant.formations %}
-								{{formation.code}}</br>
-							{% endfor %}
-						</td>
-					</tr>
+						</tr>
           {% endfor %}
 				</tbody>
 			</table>
