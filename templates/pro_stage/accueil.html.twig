@@ -17,9 +17,6 @@ Voici la liste des stages disponibles
 				<thead>
 					<tr>
 						<th>
-							#
-						</th>
-						<th>
 							Titre
 						</th>
 						<th>
@@ -33,9 +30,6 @@ Voici la liste des stages disponibles
         {% for stageCourant in stages %}
 				<tbody>
 					<tr>
-						<td>
-							{{stageCourant.id}}
-						</td>
 						<td>
 						<a href='{{path('proStage_descriptifStage',{id:stageCourant.id})}}'> {{stageCourant.titre}}</a>
 

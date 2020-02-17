@@ -16,9 +16,6 @@
 				<thead>
 					<tr>
 						<th>
-							#
-						</th>
-						<th>
 							Code
 						</th>
 						<th>
@@ -29,9 +26,6 @@
         {% for formationCourante in formations %}
 				<tbody>
 					<tr>
-						<td>
-							{{formationCourante.id}}
-						</td>
 						<td>
             <a href='{{path('proStage_formation',{nomFormation:formationCourante.nom})}}'> {{formationCourante.code}}</a>
 						</td>

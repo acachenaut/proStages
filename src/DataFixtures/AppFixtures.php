@@ -35,7 +35,6 @@ class AppFixtures extends Fixture
         for ($i=1; $i<=$nbEntreprises ; $i++) {
           $idEntreprise="entreprise".$i;
           $idEntreprise = new Entreprise();
-          $idEntreprise->setCode($i);
           $idEntreprise->setNom($faker->company);
           $idEntreprise->setAdresse($faker->address);
           $idEntreprise->setAcitivite($faker->realText($maxNbChars=200,$indexSize=2));
@@ -47,7 +46,6 @@ class AppFixtures extends Fixture
               $numEntreprise = $faker->numberBetween($min=1, $max=10);
 
               $stage = new Stage();
-              $stage->setCode($y);
               $stage->setTitre($faker->realText($maxNbChars = $faker->numberBetween($min = 30, $max = 100), $indexSize = 1));
               $stage->setEmail($faker->email);
               $stage->setDescription($faker->realText($maxNbChars = $faker->numberBetween($min = 600, $max = 1200), $indexSize = 1));

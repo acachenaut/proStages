@@ -51,6 +51,9 @@ class StageRepository extends ServiceEntityRepository
          return $requete->execute();
    }
 
+   /**
+    * @return Stage[] Returns an array of Stage objects
+    */
 
    public function findTousLesStages()
    {

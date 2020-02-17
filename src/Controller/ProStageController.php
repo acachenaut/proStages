@@ -27,7 +27,7 @@ class ProStageController extends AbstractController
 
     }
 
-    public function entreprise($nomEntreprise, StageRepository $repoStage, EntrepriseRepository $repoEntreprise)
+    public function entreprise($nomEntreprise, StageRepository $repoStage)
     {
         $stages = $repoStage->findByEntreprise($nomEntreprise);
         return $this->render('pro_stage/entreprise.html.twig',
@@ -40,7 +40,7 @@ class ProStageController extends AbstractController
       return $this->render('pro_stage/formations.html.twig',['formations'=>$formations]);
     }
 
-    public function formation($nomFormation, FormationRepository $repoFormation,StageRepository $repoStage)
+    public function formation($nomFormation, StageRepository $repoStage)
    {
        $stages = $repoStage->findByFormation($nomFormation);
        return $this->render('pro_stage/formation.html.twig',

@@ -17,9 +17,6 @@ Voici la liste des stages proposés par l'entreprise : {{nomEntreprise}}
 				<thead>
 					<tr>
 						<th>
-							#
-						</th>
-						<th>
 							Titre
 						</th>
 						</tr>
@@ -27,9 +24,6 @@ Voici la liste des stages proposés par l'entreprise : {{nomEntreprise}}
         {% for stageCourant in stages %}
 				<tbody>
 					<tr>
-						<td>
-							{{stageCourant.id}}
-						</td>
 						<td>
 							<a href='{{path('proStage_descriptifStage',{id:stageCourant.id})}}'> {{stageCourant.titre}}</a>
 						</td>

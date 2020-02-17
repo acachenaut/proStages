@@ -16,9 +16,6 @@
 				<thead>
 					<tr>
 						<th>
-							#
-						</th>
-						<th>
 							Nom
 						</th>
 						<th>
@@ -32,9 +29,6 @@
         {% for entrepriseCourante in entreprises %}
 				<tbody>
 					<tr>
-						<td>
-							{{entrepriseCourante.id}}
-						</td>
 						<td>
             <a href='{{path('proStage_entreprise',{nomEntreprise:entrepriseCourante.nom})}}'> {{entrepriseCourante.nom}}</a>
 						</td>
