@@ -12,6 +12,8 @@ use App\Entity\Entreprise;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class ProStageController extends AbstractController
 {
@@ -59,7 +61,7 @@ class ProStageController extends AbstractController
       ['stage'=>$stage]);
     }
 
-    public function ajouterEntreprise()
+    public function ajouterEntreprise(Request $request, ObjectManager $manager)
     {
       $entreprise = new Entreprise();
 
@@ -69,6 +71,18 @@ class ProStageController extends AbstractController
       ->add('acitivite',TextareaType::class)
       ->add('site',UrlType::class)
       ->getForm();
+
+      $formulaireEntreprise->handleRequest($request);
+
+         if ($formulaireEntreprise->isSubmitted() )
+         {
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            // Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('proStage_accueil');
+         }
+
       return $this->render('pro_stage/ajouterEntreprise.html.twig',['vueFormulaire'=>$formulaireEntreprise->createView()]);
     }
 
