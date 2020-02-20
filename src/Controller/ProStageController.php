@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Repository\StageRepository;
 use App\Repository\EntrepriseRepository;
 use App\Repository\FormationRepository;
+use App\Entity\Entreprise;
 
 class ProStageController extends AbstractController
 {
@@ -57,7 +58,15 @@ class ProStageController extends AbstractController
 
     public function ajouterEntreprise()
     {
-      return $this->render('pro_stage/ajouterEntreprise.html.twig');
+      $entreprise = new Entreprise();
+
+      $formulaireEntreprise = $this->createFormBuilder($entreprise)
+      ->add('nom')
+      ->add('adresse')
+      ->add('acitivite')
+      ->add('site')
+      ->getForm();
+      return $this->render('pro_stage/ajouterEntreprise.html.twig',['vueFormulaire'=>$formulaireEntreprise->createView()]);
     }
 
 
