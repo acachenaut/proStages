@@ -8,5 +8,15 @@
 {% endblock %}
 
 {% block contenuPage %}
-{{ form(vueFormulaire) }}
+{{ form_start(vueFormulaire) }}
+
+{{ form_row(vueFormulaire.nom) }}
+
+{{ form_row(vueFormulaire.adresse) }}
+
+{{ form_row(vueFormulaire.acitivite) }}
+
+{{ form_row(vueFormulaire.site) }}
+
+{{ form_end(vueFormulaire) }}
 {% endblock %}
