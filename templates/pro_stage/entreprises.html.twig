@@ -24,6 +24,9 @@
 						<th>
 							Adresse
 						</th>
+						<th>
+							Modifier
+						</th>
 					</tr>
 				</thead>
         {% for entrepriseCourante in entreprises %}
@@ -37,6 +40,9 @@
 						</td>
 						<td>
 								{{entrepriseCourante.adresse}}
+						</td>
+						<td>
+								<a href="{{path('proStage_modificationEntreprise',{'id':entrepriseCourante.id})}}">Modifier</a>
 						</td>
 					</tr>
           {% endfor %}

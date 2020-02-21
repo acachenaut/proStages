@@ -1,0 +1,28 @@
+{% extends 'proStageTemplate.html.twig' %}
+
+{% block titre %}{{parent()}}Stages{% endblock %}
+
+
+{% block titrePage %}
+{% if action == "ajouter" %}
+<h2>Ajouter une entreprise : </h2>
+{% else %}
+<h2>Modifier une entreprise : </h2>
+{% endif %}
+{% endblock %}
+
+{% block contenuPage %}
+{{ form_start(vueFormulaire) }}
+
+{{ form_row(vueFormulaire.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.acitivite, {'attr':{'placeholder':"Activité de l'entreprise..."}}) }}
+
+{{ form_row(vueFormulaire.site, {'attr':{'placeholder':"Site web de l'entreprise..."}}) }}
+
+<button type="submit" class="btn btn-dark">Enregistrer</button>
+
+{{ form_end(vueFormulaire) }}
+{% endblock %}
