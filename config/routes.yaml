@@ -32,4 +32,4 @@ proStage_modificationEntreprise:
 
 proStage_ajoutStage:
     path: /ajouterStage
-    controller: App\Controller\ProStageController::ajouterStage 
+    controller: App\Controller\ProStageController::ajouterStage
