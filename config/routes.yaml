@@ -31,5 +31,5 @@ proStage_modificationEntreprise:
     controller: App\Controller\ProStageController::modifierEntreprise
 
 proStage_ajoutStage:
-    path: profile/ajouterStage
+    path: user/ajouterStage
     controller: App\Controller\ProStageController::ajouterStage
