@@ -11,6 +11,8 @@ use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 class SecurityController extends AbstractController
 {
 
@@ -33,7 +35,7 @@ class SecurityController extends AbstractController
     {
     }
 
-    public function inscription(Request $request, ObjectManager $manager)
+    public function inscription(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
 
         $utilisateur = new User();
@@ -43,8 +45,15 @@ class SecurityController extends AbstractController
 
         $formulaireUtilisateur->handleRequest($request);
 
-         if ($formulaireUtilisateur->isSubmitted())
+         if ($formulaireUtilisateur->isSubmitted() && $formulaireUtilisateur->isValid())
          {
+            $utilisateur->setRoles(['ROLE_USER']);
+
+            $encodagePassword = $encoder->encodePassword($utilisateur, $utilisateur->getPassword());
+            $utilisateur->setPassword($encodagePassword);
+
+            $manager->persist($utilisateur);
+            $manager->flush();
 
             return $this->redirectToRoute('app_login');
          }
