@@ -24,9 +24,11 @@
 						<th>
 							Adresse
 						</th>
+						{% if is_granted('ROLE_ADMIN') %}
 						<th>
 							Modifier
 						</th>
+						{% endif %}
 					</tr>
 				</thead>
         {% for entrepriseCourante in entreprises %}
@@ -41,9 +43,11 @@
 						<td>
 								{{entrepriseCourante.adresse}}
 						</td>
+						{% if is_granted('ROLE_ADMIN') %}
 						<td>
 								<a href="{{path('proStage_modificationEntreprise',{'id':entrepriseCourante.id})}}">Modifier</a>
 						</td>
+						{% endif %}
 					</tr>
           {% endfor %}
 				</tbody>
