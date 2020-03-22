@@ -91,8 +91,13 @@
       						</li>
                   {% if is_granted('ROLE_ADMIN') %}
                   <li class="nav-item active">
+      							 <a class="nav-link" href='{{path('formation_index')}}'>Administration des formations <span class="sr-only">(current)</span></a>
+      						</li>
+                  
+                  <li class="nav-item active">
       							 <a class="nav-link" href='{{path('proStage_ajoutEntreprise')}}'>Ajouter une entreprise <span class="sr-only">(current)</span></a>
       						</li>
+
                   {% endif %}
 
                   {% if is_granted('ROLE_USER') %}
