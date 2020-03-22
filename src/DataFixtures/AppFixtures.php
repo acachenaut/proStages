@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
         $blaby->setNom('Laby');
         $blaby->setEmail('blaby@gmail.com');
         $blaby->setRoles(['ROLE_USER']);
-        $blaby->setPassword('$2y$10$nTySvLshFGeSKEPt21Fh4uy6LGsnjEpc6Gau6ryFa8Rp0uiKSxbvy');
+        $blaby->setPassword('$2y$10$Kk49j4.JoliAeXzs0Z.oNun7Y93jCNEbgYVN20nQw07HKAe8eI7US');
 
         $manager->persist($blaby);
 
