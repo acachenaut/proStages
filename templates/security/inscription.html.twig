@@ -1,0 +1,23 @@
+{% extends 'proStageTemplate.html.twig' %}
+
+{% block titre %}{{parent()}}Inscription{% endblock %}
+
+{% block titrePage %}
+<h2>Inscription sur ProStage :  </h2>
+{% endblock %}
+
+{% block contenuPage %}
+{{ form_start(vueFormulaire) }}
+
+{{ form_row(vueFormulaire.prenom, {'attr':{'placeholder':"Votre prénom..."}})}}
+
+{{ form_row(vueFormulaire.nom, {'attr':{'placeholder':"Votre nom..."}})}}
+
+{{ form_row(vueFormulaire.email, {'attr':{'placeholder':"Votre email..."}})}}
+
+{{ form_row(vueFormulaire.password, {'attr':{'placeholder':"Votre mot de passe..."}})}}
+
+<button type="submit" class="btn btn-dark">S'inscrire</button>
+
+{{ form_end(vueFormulaire) }}
+{% endblock %}
